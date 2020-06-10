@@ -1,0 +1,27 @@
+[centos@ip-10-0-3-33 ~]$ docker run --name web -p 8082:8080 chandanarm/spring:latest
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.7.RELEASE)
+
+2593 [main] INFO  com.blog.samples.docker.Application - Starting Application v0.1.0 on 1c6ede17ddc6 with PID 1 (/app/docker-boot-intro-0.1.0.jar started by root in /app)
+2603 [main] INFO  com.blog.samples.docker.Application - No active profile set, falling back to default profiles: default
+8405 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+8536 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+8610 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+8611 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.22]
+8977 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+8977 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6137 ms
+10961 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+11918 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+12081 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+12309 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+12314 [main] INFO  com.blog.samples.docker.Application - Started Application in 11.409 seconds (JVM running for 13.141)
+^C48618 [Thread-5] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+
+[centos@ip-10-0-3-33 ~]$ curl 18.222.255.191:8082/actuator/health
+
+{"status":"UP"}
