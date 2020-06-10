@@ -1,8 +1,21 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: java-app
+  name: webapp-deploy
+  labels:
+    app: nginx
 spec:
-  containers:
-  - name: java-app 
-    image: chandanarm/spring:latest
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: webapp
+          image: chandanarm/spring:latest
+          ports:
+            - containerPort: 80
