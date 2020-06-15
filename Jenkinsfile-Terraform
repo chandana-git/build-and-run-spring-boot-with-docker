@@ -27,7 +27,7 @@ stage('Push Docker Image'){
     sh 'docker push chandanarm/spring:latest'
 }
 }
-stage('Terraform deploy'){
+stage('Terraform deploy of docker'){
     
     sh 'sudo /usr/local/bin/terraform --version'
     sh 'sudo /usr/local/bin/terraform init'
