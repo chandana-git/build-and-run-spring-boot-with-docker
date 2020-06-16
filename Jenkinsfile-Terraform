@@ -32,7 +32,7 @@ stage('Terraform deploy of docker'){
     sh 'sudo /usr/local/bin/terraform --version'
     sh 'sudo /usr/local/bin/terraform init'
     sh 'sudo /usr/local/bin/terraform plan'
-    sh 'sudo /usr/local/bin/terraform apply -auto-approve'
+    sh 'sudo /usr/local/bin/terraform apply -auto-approve' //terraform
     //sh 'sudo /usr/local/bin/terraform --version'
     //sh 'sudo /usr/local/bin/terraform init'
     //sh 'sudo /usr/local/bin/terraform plan'
