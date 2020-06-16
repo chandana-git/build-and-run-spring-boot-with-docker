@@ -27,6 +27,6 @@ sh 'docker push chandanarm/spring:latest'
 }
 stage("Deploy To Kuberates Cluster"){
       sh 'kubectl create -f deploy.yml'
-      sh 'kubectl create -f service.yml'
+      sh 'kubectl create -f service.yml' //kubernetes deploy
      }
 }
