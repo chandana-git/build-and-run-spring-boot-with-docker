@@ -4,7 +4,7 @@ node {
 stage('SCM Checkout')
 {
 git 'https://github.com/chandana-git/build-and-run-spring-boot-with-docker.git'
-}
+}http://13.58.228.246:8080/job/terraform/
 
 stage('Compile Package from maven')
 {
