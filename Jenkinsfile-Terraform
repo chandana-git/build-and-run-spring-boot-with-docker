@@ -26,22 +26,24 @@ stage('Push Docker Image'){
     sh "docker login -u chandanarm  -p ${dockerHubPwd}"
     sh 'docker push chandanarm/spring:latest'
 }
-}
-stage('Terraform deploy of docker'){
+}stage('Terraform deploy of docker'){
     
-    sh 'sudo /usr/local/bin/terraform --version'
-    sh 'sudo /usr/local/bin/terraform init'
-    sh 'sudo /usr/local/bin/terraform plan'
-    sh 'sudo /usr/local/bin/terraform apply -auto-approve' //terraform
+    def tfHome = tool name: 'TF_PATH', type: 'terraform'
+     sh "${tfHome}/terraform --version"
+      sh "${tfHome}/terraform init"
+     sh "${tfHome}/terraform plan"
+     sh "${tfHome}/terraform apply -auto-approve"
+
     //sh 'sudo /usr/local/bin/terraform --version'
     //sh 'sudo /usr/local/bin/terraform init'
     //sh 'sudo /usr/local/bin/terraform plan'
-    //sh 'sudo /usr/local/bin/terraform apply -auto-approve'
-    
+    //sh 'sudo /usr/local/bin/terraform apply -auto-approve' //terraform
+   
    //sh label: '', script: 'terraform --version'
    //sh label: '', script: 'terraform init'
    //sh label: '', script: 'terraform plan'
    //sh label: '', script: 'terraform apply -auto-approve'
  
 }
+
 }
